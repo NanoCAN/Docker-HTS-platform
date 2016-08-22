@@ -1,0 +1,41 @@
+nginx:
+ build: nginx/
+ ports:
+  - "80:80"
+ links:
+  - hitseekr
+  - savanah
+ volumes:
+  - ./nginx/nginx.conf:/opt/nginx/conf/nginx.conf
+ restart: always
+hitseekr:
+ image: nanocan/hitseekr:latest
+ volumes:
+  - ./hitseekr/config.R:/srv/hitseekr/config.R
+ links:
+  - redis
+ restart: always
+savanah:
+ image: nanocan/savanah:latest
+ links:
+  - hitseekr
+  - mysql
+ environment:
+  - SAVANAH_CONFIG=/savanah.groovy
+ volumes:
+  - ./savanah/savanah.groovy:/savanah.groovy
+  - ./upload/:/upload/
+ restart: always
+mysql:
+  image: mysql:5.6.26
+  environment:
+   - MYSQL_ROOT_PASSWORD=root
+   - MYSQL_DATABASE=savanah
+   - MYSQL_USER=savanah
+   - MYSQL_PASSWORD=thatpasswordagain
+  ports:
+    - "3306:3306"
+  restart: always
+redis:
+ image: redis:2.8.21
+ restart: always
