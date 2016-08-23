@@ -5,8 +5,12 @@ nginx:
  links:
   - hitseekr
   - savanah
+  - miracle
+  - olf
+  - rmiracle
  volumes:
   - ./nginx/nginx.conf:/opt/nginx/conf/nginx.conf
+  - ./nginx/www/:/opt/nginx/conf/www/
  restart: always
 hitseekr:
  image: nanocan/hitseekr:latest
@@ -15,27 +19,56 @@ hitseekr:
  links:
   - redis
  restart: always
+olf:
+ image: nanocan/openlabframework:latest
+ links:
+  - mysql
+ environment:
+  - OPENLABFRAMEWORK_CONFIG=/openlabframework.groovy
+ volumes:
+  - ./openlabframework/openlabframework.groovy:/openlabframework.groovy
+  - ./upload/:/upload/
+ restart: always
 savanah:
  image: nanocan/savanah:latest
  links:
   - hitseekr
   - mysql
+  - olf
+  - elasticsearch
  environment:
   - SAVANAH_CONFIG=/savanah.groovy
  volumes:
   - ./savanah/savanah.groovy:/savanah.groovy
   - ./upload/:/upload/
  restart: always
+miracle:
+ image: nanocan/miracle:latest
+ links:
+  - mysql
+  - olf
+  - elasticsearch
+  - rmiracle
+ environment:
+  - MIRACLE_CONFIG=/miracle.groovy
+ volumes:
+  - ./miracle/miracle.groovy:/miracle.groovy
+  - ./upload/:/upload/
+ restart: always
+rmiracle:
+ image: nanocan/rmiracle:latest
 mysql:
-  image: mysql:5.6.26
-  environment:
-   - MYSQL_ROOT_PASSWORD=root
-   - MYSQL_DATABASE=savanah
-   - MYSQL_USER=savanah
-   - MYSQL_PASSWORD=thatpasswordagain
-  ports:
-    - "3306:3306"
-  restart: always
+ image: mysql:5.6.26
+ environment:
+  - MYSQL_ROOT_PASSWORD=root
+  - MYSQL_DATABASE=savanah
+  - MYSQL_USER=savanah
+  - MYSQL_PASSWORD=thatpasswordagain
+ volumes:
+  - ./mysql/create-databases.sql:/docker-entrypoint-initdb.d/create-database.sql
+ restart: always
 redis:
  image: redis:2.8.21
  restart: always
+elasticsearch:
+ image: elasticsearch:2.1  

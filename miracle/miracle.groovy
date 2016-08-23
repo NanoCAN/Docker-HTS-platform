@@ -19,22 +19,14 @@ environments{
                 testOnReturn=true
                 validationQuery="SELECT 1"
             }
-        }   
-        dataSource_DART {
-            pooled = true
-            driverClassName = "org.h2.Driver"
-            username = "sa"
-            password = ""
-            dbCreate = "update"
-            url = "jdbc:h2:dartDb;MVCC=TRUE;LOCK_TIMEOUT=10000"            
-        }     
+        }        
     }
 }
 
 grails.logging.jul.usebridge = false
-grails.serverURL = "http://localhost/SAVANAH/"
+grails.serverURL = "http://localhost/MIRACLE/"
 upload.directory = "/upload/"
-baseUrl = "http://localhost/SAVANAH/readoutExport/"
+baseUrl = "http://localhost/MIRACLE/readoutExport/"
 
 //CAS configuration for single sign on
 grails.plugins.springsecurity.cas.active = false
@@ -49,13 +41,16 @@ jdbc.groovySql = true
 jdbc.batchSize = 500
 
 //loglevel
-savanahLogLevel = "DEBUG"
-
-//hitseekr config
-hitseekr.url = "http://hitseekr"
+miracleLogLevel = "DEBUG"
 
 //db migration
 grails.plugin.databasemigration.updateOnStart = false
+
+//openseadragon
+openseadragon.tilesFolder = "/upload/tiles/"
+
+//shiny analysis
+shiny.batch.analysis = "http://rmiracle"
 
 //elasticsearch config
 elasticSearch.client.mode = 'transport'

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="NanoCAN Bioinformatics Unit : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src='javascripts/jquery.tipsy.js'></script>
+    <link rel="stylesheet" href="stylesheets/tipsy.css" type="text/css" />
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#olf').tipsy({gravity: 'w'});
+            $('#savanah').tipsy({gravity: 'w'});
+            $('#miracle').tipsy({gravity: 'w'});
+            $('#hitseekr').tipsy({gravity: 'w'});
+            $('#kpm').tipsy({gravity: 'n'});
+        });
+    </script>
+
+    <title>A high-throughput screening platform in Docker</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title">
+              <img width="200" src="images/001.jpg"/>
+              <img width="200" src="images/002.jpg"/>
+              <img width="200" src="images/003.jpg"/>
+              <img width="200" src="images/004.jpg"/>
+              <img width="200" src="images/005.jpg"/>              
+          </h1>
+          <h2 id="project_tagline">A high-throughput screening platform in Docker</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <h2>Motivation</h2>
+       <blockquote>
+           <p> Dealing with massive amounts of biological data is unthinkable without state-of-the-art tools. Over time, these applications have become increasingly complex and can often only be used when a long list of preconditions are met. There are serious issues with the installation and maintenance of tools due to version conflicts, outdated repositories and poor documentation. Moreover, complex tasks require integrating several tools into a workflow. Open platforms like Galaxy and Taverna have emerged to simplify building and operating such workflows. Nevertheless, ensuring the fulfillment of all preconditions remains a critical issue. </br></br>
+
+            A solution to encapsulate a tool with its dependencies in container images is Docker. An extension, called Docker compose, further facilitates interaction of several containers in a coherent software configuration. Here, we demonstrate the power of this approach by creating and deploying an integrated high-throughput screening (HTS) platform through Docker compose, which comprises systems for laboratory information management, HTS sample and plate management, HTS data analysis, systems biology analysis, and reverse-phase-protein array data management/analysis, as well as service containers for relational database management, load balancing and for a key-value store.</br></br> 
+
+            Docker is a promising solution to fully address issues in deploying scientific software even in cases where several tools need to be integrated. In addition, Docker compose allows, for instance, to deploy a complex HTS platform in a single command. We expect that the use of Docker in cases like this will enable the more widespread use of scientific software and free up time spent on dealing with software dependencies. 
+            </p>
+       </blockquote>
+
+        <h2>The following tools are included in this platform:</h2>
+        <table>
+        <tr><td>
+        <a id="olf" href="OpenLabFramework/" target="_blank" original-title="OpenLabFramework is a versatile laboratory information management 
+        system primarily targeted at supporting the sample management and tracking of vector clones and genetically modified cell lines subject to high-throughput screening.
+        It also includes the extension OpenLabNotes, an encrypted electronic laboratory notebook following FDA guidelines.">
+        <img width="350" src="https://raw.githubusercontent.com/NanoCAN/OpenLabFramework/master/web-app/images/olf_header_mobile.png"/></a>
+        </td>        
+        
+        <td>
+        <a id="savanah" href="SAVANAH/" target="_blank" original-title="SAVANAH is a high-throughput screening management tool. It supports facilities in tracking thousands of library plates
+        and diluted assay plates as well as millions of samples and their corresponding readout from HTS screens. SAVANAH can use cell lines generated in OpenLabFramework for screening."><img width="400" src="http://nanocan.github.io/SAVANAH/images/savanah_banner.png"/></a><br/>
+        </td>
+        
+        <td>
+        <a id="kpm" href="keypathwayminer/" target="_blank" original-title="KeyPathwayMinerWeb enables users to perform de novo network enrichment on experimental data to uncover
+        functional modules that play a role in the phenotype studies in a high-throughput screen.">
+        <img width="250" src="http://tomcat.compbio.sdu.dk/keypathwayminer/static/WfYSiWaocYkKMbjakzX2GiszYEpj0KY4vy84xv4P5uj.png"/></a><br/>
+        </td>
+        
+        </tr>
+        
+        <tr><td>
+        <a id="hitseekr" href="HiTSeekR/" target="_blank" original-title="HiTSeekR facilitates processing and analysis of high-throughput screening data 
+        including raw data normalization, hit discovery and in-depth systems biology analysis for gene-targeting, miRNA-targeting and small compound screens.">
+        <img width="250" src="https://raw.githubusercontent.com/NanoCAN/HiTSeekR/master/www/HiTSeekR.png"/></a><br/>
+        </td>
+        
+        <td>            
+        <a id="miracle" href="MIRACLE/" target="_blank" original-title="MIRALCE is tightly integrated with SAVANAH and allows to re-use plate information for in silico spotting of samples onto 
+        reverse-phase protein arrays. MIRACLE furthermore manages all copies and corresponding readouts and includes an R shiny application for data analysis."><img width="400" src="http://nanocan.github.io/MIRACLE/images/miracle_banner.png"/></a><br/>
+        </td>
+        </tr>
+        </table>
+        
+        <h2>References</h2>
+<style>
+p.big {
+    line-height: 150%;
+}
+</style>
+<ol>
+<li><p class="big"><u>List, M.</u>, Lemvig Pedersen, M., Schmidt, S., Christiansen, H., Tan, Q., Mollenhauer, J., Baumbach, J. (2016).
+<br/>
+<b>Efficient Management of High-Throughput Screening Libraries with SAVANAH.</b>
+<br/>
+(under review)
+</br>
+</p>
+</li>
+<li><p class="big"><u>List, M.</u>, Schmidt, S., Christiansen, H., Rehmsmeier, M., Tan, Q., Mollenhauer, J., Baumbach, J. (2016).
+<br/>
+<b>Comprehensive analysis of high-throughput screens with HiTSeekR.</b>
+<br/>
+Nucleic Acids Research, 2016, doi: 10.1093/nar/gkw554
+</br>
+<a href="http://nar.oxfordjournals.org/content/early/2016/06/21/nar.gkw554.abstract">Abstract</a>&nbsp;|
+<a href="http://hitseekr.compbio.sdu.dk">Web application link</a>
+</p>
+</li>
+<li><p class="big"><u>List, M.</u>, Alcaraz, N., Dissing-Hansen, M., Ditzel, H., Mollenhauer, J., Baumbach, J. (2016).
+<br/>
+<b>KeyPathwayMinerWeb: online multi-omics network enrichment.</b>
+<br/>
+Nucleic Acids Research, Web Server Issue 2016, doi: 10.1093/nar/gkw373
+</br>
+<a href="http://nar.oxfordjournals.org/content/early/2016/05/04/nar.gkw373.abstract">Abstract</a>&nbsp;|
+<a href="http://keypathwayminer.compbio.sdu.dk">Web application link</a>
+</p>
+</li>
+<li><p class="big"><u>List, M.</u>, Franz, M., Tan, Q., Mollenhauer, J., Baumbach, J. (2015). 
+<br/>
+<b>OpenLabNotes - An Electronic Laboratory Notebook Extension for OpenLabFramework.</b>
+<br/> 
+Journal of Integrative Bioinformatics, doi:10.2390/biecoll-jib-2015-274
+<br/>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/26673790">Abstract</a> |
+<a href="https://github.com/NanoCAN/OpenLabNotes">GitHub</a>
+</p>
+</li>
+<li><p class="big"><u>List, M.</u>, Block, I., Pedersen, M. L., Christiansen, H., Schmidt, S., Thomassen, M., Tan, Q., Baumbach, J., Mollenhauer, J. (2014). 
+<br/>
+<b>Microarray R-based analysis of complex lysate experiments with MIRACLE.</b>
+<br/> 
+Bioinformatics, 30(17), i631-i638. doi:10.1093/bioinformatics/btu473
+<br/>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/25161257">Abstract</a> |
+<a href="https://github.com/NanoCAN/MIRACLE">GitHub</a>
+</p>
+</li>
+<li><p class="big">
+<u>List, M.</u>, Schmidt, S., Trojnar, J., Thomas, J., Thomassen, M., Kruse, T. A., Tan, Q., Baumbach, J., Mollenhauer, J. (2014).<br/>
+<b>Efficient Sample Tracking With OpenLabFramework.</b><br/>
+Scientific Reports, 4. doi:10.1038/srep04278<br/>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/24589879">Abstract</a> |
+<a href="https://github.com/NanoCAN/OpenLabFramework">GitHub</a>
+</p>
+</li>
+</ol>
+
+            <div><h2>Developed by</h2><iframe src="https://orcid.org/static/html/widget.html?orcid=0000-0002-0941-4168&t=b6c68d&locale=en" frameborder="0" height="310" width="210px" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="no" allowtransparency="true"></iframe></div>    
+    </div>    
+      </section>
+            
+    
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>All source code available at <a href="http://github.com/NanoCAN">GitHub</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
