@@ -25,3 +25,4 @@ openlab.temp.dir = "/tmp/"
 grails.plugins.springsecurity.cas.active = false
 
 //Default app access token used for MIRACLE and SAVANAH
+openlab.app.access.token = "0750ab92-c412-459d-aee3-d7612d009024"

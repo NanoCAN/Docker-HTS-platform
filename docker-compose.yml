@@ -8,6 +8,7 @@ nginx:
   - miracle
   - olf
   - rmiracle
+  - keypathwayminer
  volumes:
   - ./nginx/nginx.conf:/opt/nginx/conf/nginx.conf
   - ./nginx/www/:/opt/nginx/conf/www/
@@ -18,6 +19,7 @@ hitseekr:
   - ./hitseekr/config.R:/srv/hitseekr/config.R
  links:
   - redis
+  - keypathwayminer
  restart: always
 olf:
  image: nanocan/openlabframework:latest
@@ -57,6 +59,12 @@ miracle:
  restart: always
 rmiracle:
  image: nanocan/rmiracle:latest
+keypathwayminer:
+ image: baumbachlab/keypathwayminer-web:latest
+ links:
+  - mysql
+ volumes: 
+  - ./keypathwayminer/keypathwayminer.groovy:/app/conf/keypathwayminer.groovy
 mysql:
  image: mysql:5.6.26
  environment:
