@@ -13,14 +13,20 @@
     <link rel="stylesheet" href="stylesheets/tipsy.css" type="text/css" />
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        /*$(document).ready(function() {
             $('#olf').tipsy({gravity: 'w'});
             $('#savanah').tipsy({gravity: 'w'});
             $('#miracle').tipsy({gravity: 'w'});
             $('#hitseekr').tipsy({gravity: 'w'});
             $('#kpm').tipsy({gravity: 'n'});
-        });
+        });*/
     </script>
+	<style>
+	p.big {
+	    line-height: 150%;
+	}
+	</style>
+
 
     <title>A high-throughput screening platform in Docker</title>
   </head>
@@ -54,6 +60,20 @@
             Docker is a promising solution to fully address issues in deploying scientific software even in cases where several tools need to be integrated. In addition, Docker compose allows, for instance, to deploy a complex HTS platform in a single command. We expect that the use of Docker in cases like this will enable the more widespread use of scientific software and free up time spent on dealing with software dependencies. 
             </p>
        </blockquote>
+
+	A detailed description of this platform can be found here:
+	
+	<p class="big"><u>List, M.</u> (2017).
+	<br/>
+	<b>Using Docker Compose for the Simple Deployment of an Integrated Drug Target Screening Platform.</b>
+	<br/>
+	Journal of Integrative Bioinformatics, 2017, doi: <a href = "https://doi.org/10.1515/jib-2017-0016">10.1515/jib-2017-0016</a>
+	</br>
+	</p>
+	
+	
+
+
 
         <h2>The following tools are included in this platform:</h2>
         <table>
@@ -92,18 +112,13 @@
         </tr>
         </table>
         
-        <h2>References</h2>
-<style>
-p.big {
-    line-height: 150%;
-}
-</style>
+        <h2>Additional References</h2>
 <ol>
 <li><p class="big"><u>List, M.</u>, Lemvig Pedersen, M., Schmidt, S., Christiansen, H., Tan, Q., Mollenhauer, J., Baumbach, J. (2016).
 <br/>
 <b>Efficient Management of High-Throughput Screening Libraries with SAVANAH.</b>
 <br/>
-(under review)
+SLAS Discovery (formerly Journal of Biomolecular Screening), 2016, doi: 10.1177/1087057116673607
 </br>
 </p>
 </li>
@@ -157,8 +172,6 @@ Scientific Reports, 4. doi:10.1038/srep04278<br/>
 </li>
 </ol>
 
-            <div><h2>Developed by</h2><iframe src="https://orcid.org/static/html/widget.html?orcid=0000-0002-0941-4168&t=b6c68d&locale=en" frameborder="0" height="310" width="210px" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="no" allowtransparency="true"></iframe></div>    
-    </div>    
       </section>
             
     
